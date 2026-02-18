@@ -5,22 +5,19 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
-  let action = ['ate', 'peed', 'crushed', 'broke'];
-  let what = ['my homework', 'my phone', 'the car'];
-  let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
+  const WHO = ['The dog', 'My grandma', 'The mailman', 'My bird'];
+  const ACTIONS = ['ate', 'peed', 'crushed', 'broke'];
+  const WHAT = ['my homework', 'my phone', 'the car'];
+  const WHEN = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
 
-  function randomItem(array) {
-    return array[Math.floor(Math.random() * array.length)];
-  }
+const getRandomItem = (array) =>
+  array[Math.floor(Math.random() * array.length)];
 
-  let excuse =
-    randomItem(who) + ' ' +
-    randomItem(action) + ' ' +
-    randomItem(what) + ' ' +
-    randomItem(when);
-
-  document.getElementById('excuse').innerHTML = excuse;
+const generateExcuse = () => {
+  return `${getRandomItem(WHO)} ${getRandomItem(ACTIONS)} ${getRandomItem(WHAT)} ${getRandomItem(WHEN)}`;
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+  const excuseElement = document.getElementById('excuse');
+  excuseElement.textContent = generateExcuse();
+});
